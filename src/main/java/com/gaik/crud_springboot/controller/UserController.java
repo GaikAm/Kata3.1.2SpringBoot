@@ -32,7 +32,7 @@ public class UserController {
         if (name != null && lastName != null && email != null) {
             userService.add(new User(name, lastName, email));
         }
-        return "add";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/update")
@@ -45,7 +45,7 @@ public class UserController {
         if (id != null && name != null && lastName != null && email != null) {
             userService.updateUserById(id, name, lastName, email);
         }
-        return "update";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/delete")
@@ -53,6 +53,6 @@ public class UserController {
         if (id != null) {
             userService.removeUserById(id);
         }
-        return "delete";
+        return "redirect:/";
     }
 }
