@@ -15,25 +15,12 @@
     <input type="text" name="email" placeholder="Email">
     <input type="submit" value="add"></form>
   </form>
-
-<!--  <form action="update" method="get">-->
-<!--    <input type="number" name="id" placeholder="ID изменяемого пользователя">-->
-<!--    <input type="text" name="name" placeholder="Имя">-->
-<!--    <input type="text" name="lastName" placeholder="Фамилия">-->
-<!--    <input type="text" name="email" placeholder="Email">-->
-<!--    <input type="submit" value="update"></form>-->
-<!--  </form>-->
-
-<!--  <form action="delete" method="get">-->
-<!--    <input type="number" name="id" placeholder="ID пользователя">-->
-<!--    <input type="submit" value="delete"></form>-->
 </div>
 
 <div>
   <table class="table table-dark table-striped">
     <thead>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
       <th scope="col">Email</th>
@@ -43,34 +30,17 @@
     </thead>
     <tbody>
     <tr th:each="user, Stat : ${userList}">
-<!--      <td th:text="${user.getId()}">-->
-<!--      <td th:text="${user.getFirstName()}">-->
-<!--      <td th:text="${user.getLastName()}">-->
-<!--      <td th:text="${user.getEmail()}">-->
-<!--      <td><form action="delete" method="get">-->
-<!--        <input type="number" name="id" placeholder="ID пользователя" th:value="${user.getId()}">-->
-<!--        <input type="submit" value="delete"></form>-->
-
-<!--      <form action="update" method="get">-->
-<!--        <input type="number" name="id" placeholder="ID изменяемого пользователя" th:value="${user.getId()}">-->
-<!--        <input type="text" name="name" placeholder="Имя" th:value="${user.getFirstName()}">-->
-<!--        <input type="text" name="lastName" placeholder="Фамилия" th:value="${user.getLastName()}">-->
-<!--        <input type="text" name="email" placeholder="Email" th:value="${user.getEmail()}">-->
-<!--        <input type="submit" value="update"></form>-->
-<!--      </form></td>-->
 
       <form action="update" method="get">
-        <td th:text="${user.getId()}">
         <td><input type="text" name="name" placeholder="Имя" th:value="${user.getFirstName()}"></td>
         <td><input type="text" name="lastName" placeholder="Фамилия" th:value="${user.getLastName()}"></td>
         <td><input type="text" name="email" placeholder="Email" th:value="${user.getEmail()}"></td>
-        <td><input type="number" name="id" placeholder="ID изменяемого пользователя" th:value="${user.getId()}">
+        <td><input type="hidden" name="id" th:value="${user.getId()}">
           <input type="submit" value="update"></td>
       </form>
       <td><form action="delete" method="get">
-        <input type="number" name="id" placeholder="ID пользователя" th:value="${user.getId()}">
+        <input type="hidden" name="id" th:value="${user.getId()}">
         <input type="submit" value="delete"></form></td>
-
 
     </tr>
     </tbody>
